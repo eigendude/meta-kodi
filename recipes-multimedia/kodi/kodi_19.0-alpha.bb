@@ -12,7 +12,7 @@ inherit cmake gettext python3-dir python3native
 
 OECMAKE_FIND_ROOT_PATH_MODE_PROGRAM = "BOTH"
 
-KODIREV = "75b31098a8800da653b373cd99a025b483029cfc"
+KODIREV = "9e54a80865ee065aefe62708f93e5cf4b8790cdf"
 
 DEPENDS += " \
   curl-native \
