@@ -69,13 +69,13 @@ DEPENDS += " \
             zlib \
           "
 
-SRCREV = "3ade758ceb0f8fe6d0cb7f2dcd758c873c80cb1f"
+SRCREV = "9e54a80865ee065aefe62708f93e5cf4b8790cdf"
 
 # 'patch' doesn't support binary diffs
 PATCHTOOL = "git"
 
 PV = "18.4+git${SRCPV}"
-SRC_URI = "git://github.com/xbmc/xbmc.git;protocol=https;branch=Leia \
+SRC_URI = "git://git@github.com/Aclima/sundstrom-hud.git;protocol=ssh;nobranch=1; \
            \
            file://0001-Add-support-for-musl-triplets.patch \
            file://0002-Fix-file_Emu-on-musl.patch \
