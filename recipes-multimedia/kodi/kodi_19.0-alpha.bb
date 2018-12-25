@@ -75,10 +75,6 @@ DEPENDS += " \
   zlib \
 "
 
-# breaks compilation
-CCACHE_DISABLE = "1"
-ASNEEDED = ""
-
 KODIVAAPIDEPENDS = "libva"
 KODIVAAPIDEPENDS_append_x86 = " intel-vaapi-driver"
 KODIVAAPIDEPENDS_append_x86-64 = " intel-vaapi-driver"
