@@ -100,10 +100,6 @@ SRC_URI = "git://github.com/xbmc/xbmc.git;protocol=https \
 
 S = "${WORKDIR}/git"
 
-# breaks compilation
-CCACHE = ""
-ASNEEDED = ""
-
 ACCEL ?= ""
 ACCEL_x86 = "vaapi vdpau"
 ACCEL_x86-64 = "vaapi vdpau"
