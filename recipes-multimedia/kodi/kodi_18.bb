@@ -190,7 +190,7 @@ do_configure_prepend() {
 do_install_append() {
 	install -d ${D}/lib/systemd/system
 
-	if [ -e ${D}${libdir}/kodi/kodi-gbm ] ; then
+	if [ -e ${D}${libdir}/kodi/kodi-gbm -o -e ${D}${libdir}/kodi/kodi-rbpi ] ; then
 		install -m 0644 ${WORKDIR}/kodi.service ${D}/lib/systemd/system/kodi.service
 	else
 		install -m 0644 ${WORKDIR}/kodi-x11.service ${D}/lib/systemd/system/kodi.service
