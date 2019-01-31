@@ -74,7 +74,7 @@ SRCREV = "d81c34c4651a4dfbc9ab0e893fec40f92b5e31e4"
 # 'patch' doesn't support binary diffs
 PATCHTOOL = "git"
 
-PV = "18.0+gitr${SRCPV}"
+PV = "18.0"
 SRC_URI = "git://github.com/xbmc/xbmc.git;protocol=https \
            \
            file://0001-Add-support-for-musl-triplets.patch \
