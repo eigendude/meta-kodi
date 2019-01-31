@@ -91,7 +91,6 @@ SRC_URI = "git://git@github.com/Aclima/sundstrom-hud.git;protocol=ssh;branch=sun
            file://0012-WIP-Resolution-use-desktop-screen-width-in-whitelist.patch \
            \
            file://PR15286-shader-nopow.patch \
-           file://8b854a412ed111678f20edbd662ead4028f19474.patch \
            \
            file://kodi.service \
            file://kodi-x11.service \
