@@ -201,8 +201,8 @@ SYSTEMD_PACKAGES = "${PN}"
 SYSTEMD_SERVICE_${PN} = "kodi.service"
 INSANE_SKIP_${PN} = "rpaths"
 
-FILES_${PN} += "${datadir}/xsessions ${datadir}/icons ${libdir}/xbmc ${datadir}/xbmc ${libdir}/firewalld"
-FILES_${PN}-dbg += "${libdir}/kodi/.debug ${libdir}/kodi/*/.debug ${libdir}/kodi/*/*/.debug ${libdir}/kodi/*/*/*/.debug"
+FILES_${PN} += "${datadir}/xsessions ${datadir}/icons ${libdir}/sundstrom ${datadir}/sundstrom ${libdir}/firewalld"
+FILES_${PN}-dbg += "${libdir}/sundstrom/.debug ${libdir}/sundstrom/*/.debug ${libdir}/sundstrom/*/*/.debug ${libdir}/sundstrom/*/*/*/.debug"
 
 # kodi uses some kind of dlopen() method for libcec so we need to add it manually
 # OpenGL builds need glxinfo, that's in mesa-demos
