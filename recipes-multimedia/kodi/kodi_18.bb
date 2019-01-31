@@ -84,7 +84,6 @@ SRC_URI = "git://git@github.com/Aclima/sundstrom-hud.git;protocol=ssh;nobranch=1
            \
            file://0005-estuary-move-recently-added-entries-to-the-top-in-ho.patch \
            file://0006-kodi.sh-set-mesa-debug.patch \
-           file://0007-peripheral-settings-export-CEC-device_name-in-GUI.patch \
            file://0008-speed-up-jpeg-scaling.patch \
            file://0009-extend-ffmpeg-image-to-inherit-saving-capabilities.patch \
            file://0010-flatbuffers.patch \
