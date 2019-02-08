@@ -11,7 +11,6 @@ inherit cmake pkgconfig gettext
 ASNEEDED = ""
 
 EXTRA_OECMAKE = " \
-	  -DADDONS_TO_BUILD=inputstream.adaptive \
 	  -DADDON_SRC_PREFIX=${WORKDIR}/git \
 	  -DCMAKE_BUILD_TYPE=Debug \
 	  -DCMAKE_INSTALL_PREFIX=${datadir}/kodi/addons \
