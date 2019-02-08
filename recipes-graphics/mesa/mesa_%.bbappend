@@ -1,5 +1,3 @@
-DEPENDS += "libvdpau"
-
 PROVIDES += "libegl"
 
 PACKAGECONFIG_x86 = " osmesa opengl dri3 xa r600 gallium gallium-llvm "

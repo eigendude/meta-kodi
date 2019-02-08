@@ -74,12 +74,8 @@ SRCREV = "ded117bbd636fc88802599a590e26b1d0fd7c609"
 # 'patch' doesn't support binary diffs
 PATCHTOOL = "git"
 
-# Correct 18+git vs 18-git screwup
-PE = "1"
-
-#PV = "18.1-gitr${SRCPV}"
-PV = "18.2+18.3rc1-gitr${SRCPV}"
-SRC_URI = "git://github.com/xbmc/xbmc.git;protocol=https;branch=Leia \
+PV = "18.0"
+SRC_URI = "git://github.com/xbmc/xbmc.git;protocol=https \
            \
            file://0001-Add-support-for-musl-triplets.patch \
            file://0002-Fix-file_Emu-on-musl.patch \
@@ -102,10 +98,6 @@ SRC_URI = "git://github.com/xbmc/xbmc.git;protocol=https;branch=Leia \
           "
 
 S = "${WORKDIR}/git"
-
-# breaks compilation
-CCACHE = ""
-ASNEEDED = ""
 
 ACCEL ?= ""
 ACCEL_x86 = "vaapi vdpau"
@@ -197,7 +189,7 @@ do_configure_prepend() {
 do_install_append() {
 	install -d ${D}/lib/systemd/system
 
-	if [ -e ${D}${libdir}/kodi/kodi-gbm ] ; then
+	if [ -e ${D}${libdir}/kodi/kodi-gbm -o -e ${D}${libdir}/kodi/kodi-rbpi ] ; then
 		install -m 0644 ${WORKDIR}/kodi.service ${D}/lib/systemd/system/kodi.service
 	else
 		install -m 0644 ${WORKDIR}/kodi-x11.service ${D}/lib/systemd/system/kodi.service
