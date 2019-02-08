@@ -74,7 +74,7 @@ SRCREV = "d81c34c4651a4dfbc9ab0e893fec40f92b5e31e4"
 # 'patch' doesn't support binary diffs
 PATCHTOOL = "git"
 
-PV = "18.0+gitr${SRCPV}"
+PV = "18.0"
 SRC_URI = "git://github.com/xbmc/xbmc.git;protocol=https \
            \
            file://0001-Add-support-for-musl-triplets.patch \
@@ -92,17 +92,12 @@ SRC_URI = "git://github.com/xbmc/xbmc.git;protocol=https \
            file://0012-WIP-Resolution-use-desktop-screen-width-in-whitelist.patch \
            \
            file://PR15286-shader-nopow.patch \
-           file://8b854a412ed111678f20edbd662ead4028f19474.patch \
            \
            file://kodi.service \
            file://kodi-x11.service \
           "
 
 S = "${WORKDIR}/git"
-
-# breaks compilation
-CCACHE = ""
-ASNEEDED = ""
 
 ACCEL ?= ""
 ACCEL_x86 = "vaapi vdpau"
@@ -194,7 +189,7 @@ do_configure_prepend() {
 do_install_append() {
 	install -d ${D}/lib/systemd/system
 
-	if [ -e ${D}${libdir}/kodi/kodi-gbm ] ; then
+	if [ -e ${D}${libdir}/kodi/kodi-gbm -o -e ${D}${libdir}/kodi/kodi-rbpi ] ; then
 		install -m 0644 ${WORKDIR}/kodi.service ${D}/lib/systemd/system/kodi.service
 	else
 		install -m 0644 ${WORKDIR}/kodi-x11.service ${D}/lib/systemd/system/kodi.service
