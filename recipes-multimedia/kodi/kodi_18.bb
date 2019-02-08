@@ -99,10 +99,6 @@ SRC_URI = "git://github.com/xbmc/xbmc.git;protocol=https;branch=Leia \
 
 S = "${WORKDIR}/git"
 
-# breaks compilation
-CCACHE = ""
-ASNEEDED = ""
-
 ACCEL ?= ""
 ACCEL_x86 = "vaapi vdpau"
 ACCEL_x86-64 = "vaapi vdpau"
@@ -193,7 +189,7 @@ do_configure_prepend() {
 do_install_append() {
 	install -d ${D}/lib/systemd/system
 
-	if [ -e ${D}${libdir}/kodi/kodi-gbm ] ; then
+	if [ -e ${D}${libdir}/kodi/kodi-gbm -o -e ${D}${libdir}/kodi/kodi-rbpi ] ; then
 		install -m 0644 ${WORKDIR}/kodi.service ${D}/lib/systemd/system/kodi.service
 	else
 		install -m 0644 ${WORKDIR}/kodi-x11.service ${D}/lib/systemd/system/kodi.service
