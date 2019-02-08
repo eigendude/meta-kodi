@@ -69,13 +69,13 @@ DEPENDS += " \
             zlib \
           "
 
-SRCREV = "ded117bbd636fc88802599a590e26b1d0fd7c609"
+SRCREV = "9e54a80865ee065aefe62708f93e5cf4b8790cdf"
 
 # 'patch' doesn't support binary diffs
 PATCHTOOL = "git"
 
 PV = "18.0"
-SRC_URI = "git://github.com/xbmc/xbmc.git;protocol=https \
+SRC_URI = "git://git@github.com/Aclima/sundstrom-hud.git;protocol=ssh;branch=master; \
            \
            file://0001-Add-support-for-musl-triplets.patch \
            file://0002-Fix-file_Emu-on-musl.patch \
@@ -84,7 +84,6 @@ SRC_URI = "git://github.com/xbmc/xbmc.git;protocol=https \
            \
            file://0005-estuary-move-recently-added-entries-to-the-top-in-ho.patch \
            file://0006-kodi.sh-set-mesa-debug.patch \
-           file://0007-peripheral-settings-export-CEC-device_name-in-GUI.patch \
            file://0008-speed-up-jpeg-scaling.patch \
            file://0009-extend-ffmpeg-image-to-inherit-saving-capabilities.patch \
            file://0010-flatbuffers.patch \
@@ -202,8 +201,8 @@ SYSTEMD_PACKAGES = "${PN}"
 SYSTEMD_SERVICE_${PN} = "kodi.service"
 INSANE_SKIP_${PN} = "rpaths"
 
-FILES_${PN} += "${datadir}/xsessions ${datadir}/icons ${libdir}/xbmc ${datadir}/xbmc ${libdir}/firewalld"
-FILES_${PN}-dbg += "${libdir}/kodi/.debug ${libdir}/kodi/*/.debug ${libdir}/kodi/*/*/.debug ${libdir}/kodi/*/*/*/.debug"
+FILES_${PN} += "${datadir}/xsessions ${datadir}/icons ${libdir}/sundstrom ${datadir}/sundstrom ${libdir}/firewalld"
+FILES_${PN}-dbg += "${libdir}/sundstrom/.debug ${libdir}/sundstrom/*/.debug ${libdir}/sundstrom/*/*/.debug ${libdir}/sundstrom/*/*/*/.debug"
 
 # kodi uses some kind of dlopen() method for libcec so we need to add it manually
 # OpenGL builds need glxinfo, that's in mesa-demos
