@@ -69,12 +69,12 @@ DEPENDS += " \
             zlib \
           "
 
-SRCREV = "e6fbefb2b44a4096b04d7309803f89ff7edd6510"
+SRCREV = "v1.0-alpha.7"
 
 # 'patch' doesn't support binary diffs
 PATCHTOOL = "git"
 
-PV = "18.4+git${SRCPV}"
+PV = "18.4"
 SRC_URI = "git://git@github.com/Aclima/sundstrom-hud.git;protocol=ssh;nobranch=1; \
            \
            file://0001-Add-support-for-musl-triplets.patch \
