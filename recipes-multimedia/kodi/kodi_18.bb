@@ -69,13 +69,13 @@ DEPENDS += " \
             zlib \
           "
 
-SRCREV = "${AUTOREV}"
+SRCREV = "v1.10.0-rc1"
 
 # 'patch' doesn't support binary diffs
 PATCHTOOL = "git"
 
 PV = "18.5"
-SRC_URI = "git://git@github.com/Aclima/sundstrom-hud.git;protocol=ssh;branch=master; \
+SRC_URI = "git://git@github.com/Aclima/sundstrom-hud.git;protocol=ssh;nobranch=1; \
            \
            file://0001-Add-support-for-musl-triplets.patch \
            file://0002-Fix-file_Emu-on-musl.patch \
