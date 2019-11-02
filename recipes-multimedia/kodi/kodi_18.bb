@@ -75,7 +75,7 @@ SRCREV = "v1.0-alpha.7"
 PATCHTOOL = "git"
 
 PV = "18.2"
-SRC_URI = "git://git@github.com/Aclima/sundstrom-hud.git;protocol=ssh;branch=master; \
+SRC_URI = "git://git@github.com/Aclima/sundstrom-hud.git;protocol=ssh;nobranch=1; \
            \
            file://0001-Add-support-for-musl-triplets.patch \
            file://0002-Fix-file_Emu-on-musl.patch \
