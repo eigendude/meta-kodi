@@ -59,7 +59,7 @@ DEPENDS += " \
             libxslt \
             lzo \
             mpeg2dec \
-            python \
+            python3 \
             samba \
             sqlite3 \
             taglib \
@@ -69,13 +69,13 @@ DEPENDS += " \
             zlib \
           "
 
-SRCREV = "v1.10.0-rc1"
+SRCREV = "${AUTOREV}"
 
 # 'patch' doesn't support binary diffs
 PATCHTOOL = "git"
 
-PV = "18.4"
-SRC_URI = "git://git@github.com/Aclima/sundstrom-hud.git;protocol=ssh;nobranch=1; \
+PV = "19.0-alpha1"
+SRC_URI = "git://git@github.com/eigendude/sundstrom-hud.git;protocol=ssh;branch=sundstrom-1.11; \
            \
            file://0001-Add-support-for-musl-triplets.patch \
            file://0002-Fix-file_Emu-on-musl.patch \
@@ -210,19 +210,19 @@ RRECOMMENDS_${PN}_append = " libcec \
                              libcurl \
                              libnfs \
                              ${@bb.utils.contains('PACKAGECONFIG', 'x11', 'xdyinfo xrandr xinit mesa-demos', '', d)} \
-                             python \
-                             python-ctypes \
-                             python-lang \
-                             python-re \
-                             python-netclient \
-                             python-html \
-                             python-difflib \
-                             python-json \
-                             python-zlib \
-                             python-shell \
-                             python-sqlite3 \
-                             python-compression \
-                             python-xmlrpc \
+                             python3 \
+                             python3-ctypes \
+                             python3-lang \
+                             python3-re \
+                             python3-netclient \
+                             python3-html \
+                             python3-difflib \
+                             python3-json \
+                             python3-zlib \
+                             python3-shell \
+                             python3-sqlite3 \
+                             python3-compression \
+                             python3-xmlrpc \
                              tzdata-africa \
                              tzdata-americas \
                              tzdata-antarctica \
