@@ -212,13 +212,10 @@ RRECOMMENDS_${PN}_append = " libcec \
                              ${@bb.utils.contains('PACKAGECONFIG', 'x11', 'xdyinfo xrandr xinit mesa-demos', '', d)} \
                              python3 \
                              python3-ctypes \
-                             python3-lang \
-                             python3-re \
                              python3-netclient \
                              python3-html \
                              python3-difflib \
                              python3-json \
-                             python3-zlib \
                              python3-shell \
                              python3-sqlite3 \
                              python3-compression \
