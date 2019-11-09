@@ -77,17 +77,12 @@ PATCHTOOL = "git"
 PV = "19.0-alpha1"
 SRC_URI = "git://git@github.com/eigendude/sundstrom-hud.git;protocol=ssh;branch=sundstrom-1.11; \
            \
-           file://0001-Add-support-for-musl-triplets.patch \
            file://0002-Fix-file_Emu-on-musl.patch \
            file://0003-Remove-FILEWRAP.patch \
            file://0004-Replace-u_int64_t-with-uint64_t-from-stdint.h.patch \
            \
-           file://0005-estuary-move-recently-added-entries-to-the-top-in-ho.patch \
            file://0006-kodi.sh-set-mesa-debug.patch \
-           file://0008-speed-up-jpeg-scaling.patch \
-           file://0009-extend-ffmpeg-image-to-inherit-saving-capabilities.patch \
            file://0010-flatbuffers.patch \
-           file://0011-WIP-windowing-gbm-add-option-to-limit-gui-size.patch \
            \
            file://PR15286-shader-nopow.patch \
            file://15941.patch \
