@@ -3,9 +3,9 @@ SUMMARY = "Kodi Media Center"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=7b423f1c9388eae123332e372451a4f7"
 
-FILESPATH =. "${FILE_DIRNAME}/kodi-18:"
+FILESPATH =. "${FILE_DIRNAME}/kodi-19:"
 
-inherit cmake gettext python-dir pythonnative systemd
+inherit cmake gettext python3-dir python3native systemd
 
 DEPENDS += " \
             libfmt \
@@ -59,7 +59,7 @@ DEPENDS += " \
             libxslt \
             lzo \
             mpeg2dec \
-            python \
+            python3 \
             samba \
             sqlite3 \
             taglib \
@@ -69,15 +69,14 @@ DEPENDS += " \
             zlib \
           "
 
-SRCREV = "v1.10.0-rc1"
+SRCREV = "${AUTOREV}"
 
 # 'patch' doesn't support binary diffs
 PATCHTOOL = "git"
 
-PV = "18.5"
-SRC_URI = "git://git@github.com/Aclima/sundstrom-hud.git;protocol=ssh;nobranch=1; \
+PV = "19.0"
+SRC_URI = "git://github.com/eigendude/sundstrom-hud.git;protocol=https;branch=master \
            \
-           file://0001-Add-support-for-musl-triplets.patch \
            file://0001-Fix-build-on-Raspberry-Pi.patch \
            file://0002-Fix-file_Emu-on-musl.patch \
            file://0003-Remove-FILEWRAP.patch \
@@ -85,10 +84,7 @@ SRC_URI = "git://git@github.com/Aclima/sundstrom-hud.git;protocol=ssh;nobranch=1
            \
            file://0005-estuary-move-recently-added-entries-to-the-top-in-ho.patch \
            file://0006-kodi.sh-set-mesa-debug.patch \
-           file://0008-speed-up-jpeg-scaling.patch \
-           file://0009-extend-ffmpeg-image-to-inherit-saving-capabilities.patch \
            file://0010-flatbuffers.patch \
-           file://0011-WIP-windowing-gbm-add-option-to-limit-gui-size.patch \
            \
            file://PR15286-shader-nopow.patch \
            file://15941.patch \
@@ -213,19 +209,16 @@ RRECOMMENDS_${PN}_append = " libcec \
                              libcurl \
                              libnfs \
                              ${@bb.utils.contains('PACKAGECONFIG', 'x11', 'xdyinfo xrandr xinit mesa-demos', '', d)} \
-                             python \
-                             python-ctypes \
-                             python-lang \
-                             python-re \
-                             python-netclient \
-                             python-html \
-                             python-difflib \
-                             python-json \
-                             python-zlib \
-                             python-shell \
-                             python-sqlite3 \
-                             python-compression \
-                             python-xmlrpc \
+                             python3 \
+                             python3-ctypes \
+                             python3-netclient \
+                             python3-html \
+                             python3-difflib \
+                             python3-json \
+                             python3-shell \
+                             python3-sqlite3 \
+                             python3-compression \
+                             python3-xmlrpc \
                              tzdata-africa \
                              tzdata-americas \
                              tzdata-antarctica \
