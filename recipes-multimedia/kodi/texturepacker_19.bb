@@ -22,7 +22,7 @@ PV = "18.0+gitr${SRCPV}"
 SRC_URI = "git://github.com/xbmc/xbmc.git;branch=master \
           "
 
-inherit cmake gettext python-dir pythonnative
+inherit cmake gettext python3-dir python3native
 
 S = "${WORKDIR}/git/tools/depends/native/TexturePacker"
 
