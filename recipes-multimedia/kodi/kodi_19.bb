@@ -185,12 +185,12 @@ do_configure_prepend() {
 }
 
 do_install_append() {
-	install -d ${D}/lib/systemd/system
+	install -d ${D}${systemd_system_unitdir}
 
 	if [ -e ${D}${libdir}/kodi/kodi-gbm -o -e ${D}${libdir}/kodi/kodi-rbpi ] ; then
-		install -m 0644 ${WORKDIR}/kodi.service ${D}/lib/systemd/system/kodi.service
+		install -m 0644 ${WORKDIR}/kodi.service ${D}/${systemd_system_unitdir}
 	else
-		install -m 0644 ${WORKDIR}/kodi-x11.service ${D}/lib/systemd/system/kodi.service
+		install -m 0644 ${WORKDIR}/kodi-x11.service ${D}/${systemd_system_unitdir}
 
 	fi
 }
