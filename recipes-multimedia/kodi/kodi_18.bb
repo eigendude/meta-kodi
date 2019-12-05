@@ -78,6 +78,7 @@ PV = "18.5"
 SRC_URI = "git://git@github.com/Aclima/sundstrom-hud.git;protocol=ssh;nobranch=1; \
            \
            file://0001-Add-support-for-musl-triplets.patch \
+           file://0001-Fix-build-on-Raspberry-Pi.patch \
            file://0002-Fix-file_Emu-on-musl.patch \
            file://0003-Remove-FILEWRAP.patch \
            file://0004-Replace-u_int64_t-with-uint64_t-from-stdint.h.patch \
@@ -120,6 +121,8 @@ PACKAGECONFIG[vdpau] = "-DENABLE_VDPAU=ON,-DENABLE_VDPAU=OFF,libvdpau"
 PACKAGECONFIG[mysql] = "-DENABLE_MYSQLCLIENT=ON,-DENABLE_MYSQLCLIENT=OFF,mysql5"
 PACKAGECONFIG[pulseaudio] = "-DENABLE_PULSEAUDIO=ON,-DENABLE_PULSEAUDIO=OFF,pulseaudio"
 PACKAGECONFIG[lcms] = ",,lcms"
+
+CXXFLAGS += "-DEGL_EGLEXT_PROTOTYPES"
 
 LDFLAGS += "${TOOLCHAIN_OPTIONS}"
 LDFLAGS_append_mips = " -latomic"

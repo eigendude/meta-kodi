@@ -1,0 +1,73 @@
+From f5a6af18c1f85872754875c646f2231c9f644824 Mon Sep 17 00:00:00 2001
+From: Garrett Brown <themagnificentmrb@gmail.com>
+Date: Thu, 28 Nov 2019 20:44:45 -0800
+Subject: [PATCH] Fix build on Raspberry Pi
+
+Error was:
+
+WinSystemRpiGLESContext.cpp:98:35: error: invalid conversion from 'EGLSurface' {aka 'void*'} to 'EGLNativeWindowType' {aka 'long unsigned int'} [-fpermissive]
+---
+ xbmc/windowing/rpi/RPIUtils.cpp                | 6 ++++++
+ xbmc/windowing/rpi/WinSystemRpi.cpp            | 8 +++++++-
+ xbmc/windowing/rpi/WinSystemRpiGLESContext.cpp | 2 +-
+ 3 files changed, 14 insertions(+), 2 deletions(-)
+
+diff --git a/xbmc/windowing/rpi/RPIUtils.cpp b/xbmc/windowing/rpi/RPIUtils.cpp
+index d93a450890..1a1b34f06e 100644
+--- a/xbmc/windowing/rpi/RPIUtils.cpp
++++ b/xbmc/windowing/rpi/RPIUtils.cpp
+@@ -44,6 +44,12 @@
+ #define GETFLAGS_GROUP(f)       ( (HDMI_RES_GROUP_T)( ((f) >> 16) & 0xff ))
+ #define GETFLAGS_MODE(f)        ( ( (f) >>24 ) & 0xff )
+ 
++typedef struct {
++  DISPMANX_ELEMENT_HANDLE_T element;
++  int width;   /* This is necessary because dispmanx elements are not queriable. */
++  int height;
++} EGL_DISPMANX_WINDOW_T;
++
+ static void SetResolutionString(RESOLUTION_INFO &res);
+ static SDTV_ASPECT_T get_sdtv_aspect_from_display_aspect(float display_aspect);
+ 
+diff --git a/xbmc/windowing/rpi/WinSystemRpi.cpp b/xbmc/windowing/rpi/WinSystemRpi.cpp
+index 9b723eb645..4d1777b005 100644
+--- a/xbmc/windowing/rpi/WinSystemRpi.cpp
++++ b/xbmc/windowing/rpi/WinSystemRpi.cpp
+@@ -29,6 +29,12 @@
+ #include <EGL/egl.h>
+ #include <EGL/eglplatform.h>
+ 
++typedef struct {
++  DISPMANX_ELEMENT_HANDLE_T element;
++  int width;   /* This is necessary because dispmanx elements are not queriable. */
++  int height;
++} EGL_DISPMANX_WINDOW_T;
++
+ CWinSystemRpi::CWinSystemRpi() :
+   m_libinput(new CLibInputHandler)
+ {
+@@ -135,7 +141,7 @@ bool CWinSystemRpi::CreateNewWindow(const std::string& name,
+   m_stereo_mode = stereo_mode;
+   m_bFullScreen = fullScreen;
+ 
+-  m_nativeWindow = static_cast<EGLNativeWindowType>(new EGL_DISPMANX_WINDOW_T);
++  m_nativeWindow = static_cast<EGLSurface>(new EGL_DISPMANX_WINDOW_T);
+ 
+   m_rpi->SetNativeResolution(res, m_nativeWindow);
+ 
+diff --git a/xbmc/windowing/rpi/WinSystemRpiGLESContext.cpp b/xbmc/windowing/rpi/WinSystemRpiGLESContext.cpp
+index 7a3c7ee25a..b1683650ec 100644
+--- a/xbmc/windowing/rpi/WinSystemRpiGLESContext.cpp
++++ b/xbmc/windowing/rpi/WinSystemRpiGLESContext.cpp
+@@ -95,7 +95,7 @@ bool CWinSystemRpiGLESContext::CreateNewWindow(const std::string& name,
+     return false;
+   }
+ 
+-  if (!m_pGLContext.CreateSurface(m_nativeWindow))
++  if (!m_pGLContext.CreateSurface(reinterpret_cast<EGLNativeWindowType>(m_nativeWindow)))
+   {
+     return false;
+   }
+-- 
+2.20.1
+
