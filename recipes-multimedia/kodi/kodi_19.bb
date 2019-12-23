@@ -239,3 +239,9 @@ RRECOMMENDS_${PN}_append_libc-glibc = " glibc-charmap-ibm850 \
 					glibc-charmap-utf-8 \
 					glibc-localedata-en-us \
                                       "
+
+# Ignore development packages
+PACKAGES_remove = " \
+    ${PN}-dev \
+    ${PN}-staticdev \
+"
