@@ -33,3 +33,8 @@ INSANE_SKIP_${PN} = "dev-so"
 
 # Adapter shows up as a CDC-ACM device
 RRECOMMENDS_${PN} = "kernel-module-cdc-acm"
+
+PACKAGES_remove = " \
+    ${PN}-dev \
+    ${PN}-staticdev \
+"
