@@ -187,7 +187,7 @@ do_configure_prepend() {
 do_install_append() {
 	install -d ${D}${systemd_system_unitdir}
 
-	if [ -e ${D}${libdir}/kodi/kodi-gbm -o -e ${D}${libdir}/kodi/kodi-rbpi ] ; then
+	if [ -e ${D}${libdir}/sundstrom/sundstrom-gbm -o -e ${D}${libdir}/sundstrom/sundstrom-rbpi ] ; then
 		install -m 0644 ${WORKDIR}/kodi.service ${D}/${systemd_system_unitdir}
 	else
 		install -m 0644 ${WORKDIR}/kodi-x11.service ${D}/${systemd_system_unitdir}

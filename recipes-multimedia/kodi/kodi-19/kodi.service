@@ -16,7 +16,7 @@ SuccessExitStatus=0 1
 IOSchedulingClass=realtime
 IOSchedulingPriority=0
 
-ExecStart=/usr/bin/kodi-standalone
+ExecStart=/usr/bin/sundstrom-standalone
 
 [Install]
 WantedBy=basic.target
