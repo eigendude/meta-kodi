@@ -193,6 +193,9 @@ do_install_append() {
 		install -m 0644 ${WORKDIR}/kodi-x11.service ${D}/${systemd_system_unitdir}
 
 	fi
+
+    # Clean up include dir to avoid warnings about unshipped files
+    rm -rf ${D}${includedir}
 }
 
 
