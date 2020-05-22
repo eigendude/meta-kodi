@@ -6,7 +6,6 @@ Environment=__GL_YIELD=USLEEP
 Environment=DISPLAY=:0.0
 Environment=WAYLAND_DISPLAY=wayland-0
 Environment=SDL_MOUSE_RELATIVE=0
-Environment=KODI_AE_SINK=PULSE
 
 User=root
 Type=simple
