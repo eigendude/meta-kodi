@@ -3,7 +3,7 @@
 
 inherit kodi-common vpu
 
-KODIURI ?= "gitsm://github.com/Aclima/sundstrom-hud.git;protocol=https;nobranch=1"
+KODIURI ?= "gitsm://github.com/xbmc/xbmc.git;protocol=https;nobranch=1"
 KODIREV ?= "c1fbb5fc13daefb1658aab508b82a1b039684c02"
 KODIWORKDIR ?= "${WORKDIR}/git"
 
