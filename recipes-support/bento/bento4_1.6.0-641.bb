@@ -8,9 +8,8 @@ LIC_FILES_CHKSUM = "file://Documents/LICENSE.txt;md5=2bdfce88f437a0613f41effed74
 inherit cmake pkgconfig
 
 SRC_URI = "git://github.com/xbmc/Bento4;protocol=https;nobranch=1"
+SRCREV = "dc264854d1f76c370b65b18d9f303a95f7f21ab1"
 
-PV = "1.6.0-639"
-SRCREV = "345883db2044fa78c4237dac29da7efd9be1091a"
 S = "${WORKDIR}/git"
 
 EXTRA_OECMAKE = "-DBUILD_APPS=OFF -DCMAKE_POSITION_INDEPENDENT_CODE=ON -DCMAKE_BUILD_TYPE=Release"
