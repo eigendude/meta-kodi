@@ -6,8 +6,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=435ed639f84d4585d93824e7da3d85da"
 SRC_URI = "git://github.com/ShiftMediaProject/libbluray.git;branch=master;protocol=https"
 
 S = "${WORKDIR}/git"
-SRCREV = "2beb8bf5ca39fc7d856307e41350dcb58d19df26"
-PV = "1.3.1"
+SRCREV = "65143af1228f24ddced34826b66880fc686e15a7"
 
 inherit autotools pkgconfig
 
