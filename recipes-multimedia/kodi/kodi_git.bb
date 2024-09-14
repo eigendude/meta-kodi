@@ -13,11 +13,9 @@ inherit ccache cmake pkgconfig gettext python3native
 SRC_URI:append = " \
 	file://0001-fix-include-order-issue.patch \
 	file://0001-mysqldataset-we-use-mysql-includedir-name-for-mari.patch \
-	file://0001-AEELDParser.cpp-fix-rtrim-function-for-clang.patch \
 	file://libreelec/kodi-100.03-disable-online-check.patch \
 	file://libreelec/kodi-995.10-devinputmappings.patch \
 	file://libreelec/kodi-999.15-disable-using-tv-menu-language-by-default.patch \
-	file://0001-FindLibDvd.cmake-build-with-external-source.patch \
 	file://0001-FindNFS.cmake-dont-use-cmake-config.patch \
 	file://drmprime-filter/0001-WIP-DVDVideoCodecDRMPRIME-add-support-for-filters.patch \
 	file://drmprime-filter/0002-WIP-DRMPRIME-deinterlace-filter.patch \
@@ -192,7 +190,6 @@ RRECOMMENDS:${PN} = " \
   python3-db \
   python3-image \
   python3-difflib \
-  python3-distutils \
   python3-html \
   python3-json \
   python3-multiprocessing \

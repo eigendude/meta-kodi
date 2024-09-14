@@ -1,6 +1,6 @@
 # Variables
 
-KODICODENAME ?= "Nexus"
+KODICODENAME ?= "Omega"
 
 # Default to GBM everywhere, sucks to be nvidia
 
